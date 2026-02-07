@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <div className="homePage">
       <Title columnCntInput={columnCntInput} setColumnCntInput={setColumnCntInput} setColumnCnt={setColumnCnt} title="Paginated Table" />
-      <Table fetchData={fetchData} pageSize={10} columnCnt={columnCnt}/>
+      <Table fetchData={fetchData} columnCnt={columnCnt}/>
     </div>
   )
 }
