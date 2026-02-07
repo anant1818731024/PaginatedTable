@@ -11,6 +11,11 @@ export function Title({
   setColumnCnt,
   title,
 }: TitleProps) {
+  const handleApply = () => {
+    if (!columnCntInput || isNaN(Number(columnCntInput)) || Number(columnCntInput) <= 0) return;
+    setColumnCnt(Number(columnCntInput));
+    setColumnCntInput("");
+  }
   return (
     <div className="title">
       <h2>{title}</h2>
@@ -26,14 +31,15 @@ export function Title({
             if(isNaN(Number(value))) return;
             setColumnCntInput(value);
           }}
+          onKeyDown={(e) => {
+            if(e.key === "Enter"){
+              handleApply();
+            }
+          }}
         />
 
         <button
-          onClick={() => {
-            if (!columnCntInput) return;
-            setColumnCnt(Number(columnCntInput));
-            setColumnCntInput("");
-          }}
+          onClick={handleApply}
           disabled={isNaN(Number(columnCntInput)) || Number(columnCntInput) <= 0}
         >
           Apply
