@@ -1,0 +1,49 @@
+.data-table-wrapper {
+  overflow: scroll;
+
+  .data-table {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  thead {
+    background: var(--bg-alt);
+  }
+
+  th {
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid var(--border);
+  }
+
+  th:hover {
+    color: var(--primary);
+  }
+
+  td {
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  tbody tr:hover {
+    background: var(--primary-soft);
+  }
+
+  .sort-indicator {
+    margin-left: 6px;
+    font-size: 11px;
+    color: var(--primary);
+  }
+}

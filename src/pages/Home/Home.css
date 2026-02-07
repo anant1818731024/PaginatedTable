@@ -1,0 +1,29 @@
+.homePage{
+    width: 100%;
+}
+
+.table-title {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #161616;
+  letter-spacing: 0.2px;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.column-configurator{
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    gap: 10px;
+}   
+
+#columnCnt{
+    width: 50px;
+}

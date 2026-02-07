@@ -1,0 +1,73 @@
+.table-skeleton{
+    max-width: 75vw;
+    /* Skeleton base */
+    .skeleton {
+    display: block;                 /* 🔑 critical */
+    height: 14px;                   /* 🔑 critical */
+    background: linear-gradient(
+        90deg,
+        #f1f5f9 25%,
+        #e5e7eb 37%,
+        #f1f5f9 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: 6px;
+    }
+
+    /* Shimmer animation */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: skeleton-shimmer 1.2s infinite;
+}
+
+    /* Header skeleton */
+    .skeleton-header {
+    height: 14px;
+    }
+
+    /* Cell skeleton */
+    .skeleton-cell {
+    height: 14px;
+    width: 100%;
+    }
+
+    /* Table spacing (DO NOT SKIP) */
+    table {
+    border-collapse: collapse;
+    }
+
+    th,
+    td {
+    padding: 12px 14px;
+    border-top: 1px solid #e5e7eb;
+    }
+
+    /* Wrapper to make it visible */
+    .table-wrapper {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow-x: auto;
+    background: #fff;
+    }
+
+    /* Animation */
+    @keyframes shimmer {
+        0% {
+            background-position: 100% 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+
+}
