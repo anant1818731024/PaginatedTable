@@ -1,17 +1,15 @@
 import { DataTable } from "../DataTable/DataTable";
 import { Pagination } from "../Pagination/Pagination";
 import { useTableState } from "../../hooks/useTableState";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { Props } from "./Props";
 import { TableSkeleton } from "../TableSkelton/TableSkelton";
 import { useTableFetch } from "../../hooks/useTableFetch";
 import "./Table.css";
 
-export function Table({ fetchData, pageSize:initialPageSize, columnCnt }: Props) {
-    const { page, sortBy, sortOrder, updateState } = useTableState();
+export function Table({ fetchData, columnCnt }: Props) {
+    const { page, pageSize, sortBy, sortOrder, updateState } = useTableState();
     const { loading, rows, total, loadData } = useTableFetch(fetchData);
-
-    const [pageSize, setPageSize] = useState(initialPageSize || 10);
 
     function handleSort(column: string) {
         if (sortBy !== column) {
@@ -25,12 +23,7 @@ export function Table({ fetchData, pageSize:initialPageSize, columnCnt }: Props)
 
     useEffect(() => {
         loadData(page, pageSize, sortBy, sortOrder);
-    }, [page, sortBy, sortOrder]);
-
-    useEffect(() => {
-        if(page === 1) loadData(page, pageSize, sortBy, sortOrder);
-        updateState({ page: 1 });
-    },[pageSize])
+    }, [page, pageSize,sortBy, sortOrder]);
 
     return (
         <div >
@@ -39,7 +32,7 @@ export function Table({ fetchData, pageSize:initialPageSize, columnCnt }: Props)
                 page={page}
                 total={total}
                 pageSize={pageSize}
-                onPageSizeUpdate={(s:number) => setPageSize(s)}
+                onPageSizeUpdate={(s:number) => updateState({ pageSize: s, page: 1 })}
                 onPageChange={(p) => updateState({ page: p })}
             />
         </div>

@@ -5,7 +5,6 @@ export interface Props {
     sortBy?: string;
     sortOrder?: "asc" | "desc";
   }) => Promise<any>;
-  pageSize?: number;
   columnCnt?: number;
   dimensionControls?: {
     rowsControl?: boolean;

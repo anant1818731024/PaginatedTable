@@ -6,9 +6,10 @@ export function useTableState() {
   const page = Number(params.get("page") || 1);
   const sortBy = params.get("sortBy") || undefined;
   const sortOrder = params.get("sortOrder") as "asc" | "desc" | undefined;
+  const pageSize = Number(params.get("pageSize") || 10);
   
 
-  function updateState(next: Partial<{ page: number; sortBy: string; sortOrder: string }>) {
+  function updateState(next: Partial<{ page: number; sortBy: string; sortOrder: string; pageSize: number }>) {
     setParams((prev) => {
       Object.entries(next).forEach(([k, v]) => {
         if (v === undefined) prev.delete(k);
@@ -18,5 +19,5 @@ export function useTableState() {
     });
   }
 
-  return { page, sortBy, sortOrder,updateState};
+  return { page, pageSize, sortBy, sortOrder,updateState};
 }
