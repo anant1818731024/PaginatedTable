@@ -6,7 +6,7 @@ The focus is on clean component design, separation of concerns, and a smooth use
 A live demo is provided so the application can be reviewed without local setup.
 
 🚀 Live Demo:
-https://anant1818731024.github.io/paginate-table/
+https://anant1818731024.github.io/PaginatedTable/
 
 ## ✅ Prerequisites
 
